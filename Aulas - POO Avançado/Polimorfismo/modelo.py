@@ -5,7 +5,6 @@ class Programa:
         self.ano = ano
         self._likes = 0
 
-    
     @property
     def likes(self):
         return self._likes
@@ -41,3 +40,21 @@ class Serie(Programa):
 
     def __str__(self):
         return f'{super().__str__()} | Duração: {self.temporadas}'
+    
+
+
+class AvaliaPrograma:
+    def __init__(self):
+        self.__avaliacoes = 0
+    
+
+    def avalia(self, programa):
+        
+        resp = str(input(f'voce gostou de assistir {programa.nome} ? [S/N]: ')).lower()
+
+        if resp == 's':
+            self.__avaliacoes += 1
+            programa.dar_like()
+            print('resposta gravada')
+        else:
+            print('resposta gravada')
